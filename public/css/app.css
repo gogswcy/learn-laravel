@@ -11410,3 +11410,9 @@ body {
   color: inherit;
 }
 
+.register-page img.captcha {
+  cursor: pointer;
+  border: 1px solid #ced4da;
+  padding: 3px;
+}
+
