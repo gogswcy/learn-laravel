@@ -11,11 +11,15 @@ class UsersController extends Controller
 {
     public function show(User $user)
     {
+        if (config('app.subdir'))
+            $user->avatar = config('app.subdir') . $user->avatar;
         return view('users.show', compact('user'));
     }
 
     public function edit(User $user)
     {
+        if (config('app.subdir'))
+            $user->avatar = config('app.subdir') . $user->avatar;
         return view('users.edit', compact('user'));
     }
 

@@ -21,7 +21,7 @@
             @else
             <li class="nav-item dropdown">
                 <a href="#" role="button" class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown">
-                    <img src="https://laravel-china.org/uploads/images/201709/20/1/PtDKbASVcz.png" style="width: 30px; height: 30px;" alt="">
+                    <img src="{{ $user->avatar }}" style="width: 30px; height: 30px;" alt="{{ $user->name }}">
                     {{ Auth::user()->name }}
                 </a>
 
