@@ -9,6 +9,11 @@ use App\Handlers\ImageuploadHandler;
 
 class UsersController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['show']]);
+    }
+
     public function show(User $user)
     {
         if (config('app.subdir'))
@@ -18,6 +23,7 @@ class UsersController extends Controller
 
     public function edit(User $user)
     {
+        $this->authorize('update', $user);
         if (config('app.subdir'))
             $user->avatar = config('app.subdir') . $user->avatar;
         return view('users.edit', compact('user'));
@@ -25,6 +31,7 @@ class UsersController extends Controller
 
     public function update(UserRequest $request, ImageuploadHandler $uploader, User $user)
     {
+        $this->authorize('update', $user);
         $data = $request->all();
         if ($request->avatar) {
             $result =  $uploader->save($request->avatar, 'avatars', $user->id, 416);
