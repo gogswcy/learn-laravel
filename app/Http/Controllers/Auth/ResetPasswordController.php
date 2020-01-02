@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
+use Illuminate\Http\Request;
 
 class ResetPasswordController extends Controller
 {
@@ -35,5 +36,11 @@ class ResetPasswordController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+    }
+
+    protected function sendResetResponse(\Illuminate\Http\Request $request, $response)
+    {
+        session()->flash('success', '密码修改成功, 您已重新登录!');
+        return redirect($this->redirectPath());
     }
 }
