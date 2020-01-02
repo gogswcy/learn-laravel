@@ -12,7 +12,6 @@
 */
 
 Route::get('/', 'PagesController@root')->name('root');
-Route::get('/h', function () { return view('home'); });
 // 等同于下面
 // Auth::routes();
 // 用户身份验证相关的路由
@@ -29,5 +28,5 @@ Route::get('password/reset/{token}', 'Auth\ResetPasswordController@reset')->name
 Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('password.update');
 // Email 认证相关路由
 Route::get('email/verify', 'Auth\VerificationController@show')->name('verification.notice');
-Route::get('email/verify/{id}', 'Auth\VerificationController@verify')->name('verfication.verify');
-Route::get('email/resend', 'Auth\VerificationController@resend')->name('verification.resend');
+Route::get('email/verify/{id}', 'Auth\VerificationController@verify')->name('verification.verify');
+Route::post('email/resend', 'Auth\VerificationController@resend')->name('verification.resend');
