@@ -8,9 +8,11 @@ use App\Models\Category;
 
 class CategoriesController extends Controller
 {
-    public function show(Category $category)
+    public function show(Request $request, Category $category)
     {
-        $topics = Topic::where('category_id', $category->id)->paginate(10);
+        $topics = Topic::withOrder($request->order)
+            ->where('category_id', $category->id)
+            ->paginate(10);
 
         return view('topics.index', compact('topics', 'category'));
     }
