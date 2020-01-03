@@ -20,7 +20,6 @@ class UsersTableSeeder extends Seeder
             'https://iocaffcdn.phphub.org/uploads/images/201710/14/1/Lhd1SHqu86.png',
             'https://iocaffcdn.phphub.org/uploads/images/201710/14/1/LOnMrqbHJn.png',
             'https://iocaffcdn.phphub.org/uploads/images/201710/14/1/xAuDMxteQy.png',
-            'https://iocaffcdn.phphub.org/uploads/images/201710/14/1/ZqM7iaP4CR.png',
             'https://iocaffcdn.phphub.org/uploads/images/201710/14/1/NDnzMutoxX.png',
         ];
 
@@ -42,7 +41,7 @@ class UsersTableSeeder extends Seeder
         $user = User::find(1);
         $user->name  = 'Song';
         $user->email = '740341854@qq.com';
-        $user->avatar = 'https://iocaffcdn.hphub.org/uploads/images/201710/14/1/ZqM7iaP4CR.png';
+        $user->avatar = 'https://iocaffcdn.phphub.org/uploads/images/201710/14/1/NDnzMutoxX.png';
         $user->save();
     }
 }

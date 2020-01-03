@@ -21,7 +21,7 @@
             @else
             <li class="nav-item dropdown">
                 <a href="#" role="button" class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown">
-                    <img src="{{ $user->avatar }}" style="width: 30px; height: 30px;" alt="{{ $user->name }}">
+                    <img src="{{ Auth::user()->avatar }}" style="width: 30px; height: 30px;" alt="{{ Auth::user()->name }}">
                     {{ Auth::user()->name }}
                 </a>
 
