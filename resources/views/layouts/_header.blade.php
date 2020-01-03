@@ -24,6 +24,11 @@
                 <li class="nav-item"><a href="{{ route('login') }}" class="nav-link">登录</a></li>
                 <li class="nav-item"><a href="{{ route('register') }}" class="nav-link">注册</a></li>
                 @else
+                <li class="nav-item">
+                    <a href="{{ route('topics.create') }}" class="nav-link mt-1 mr-3 font-weight-bold">
+                        <i class="fa fa-plus"></i>
+                    </a>
+                </li>
                 <li class="nav-item dropdown">
                     <a href="#" role="button" class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown">
                         <img src="{{ Auth::user()->avatar }}" style="width: 30px; height: 30px;" alt="{{ Auth::user()->name }}">
@@ -32,11 +37,11 @@
 
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a href="{{ route('users.show', Auth::id()) }}" class="dropdown-item">
-                            <i class="far far-user mr-2"></i>
+                            <i class="far fa-user mr-2"></i>
                             个人中心
                         </a>
                         <a href="{{ route('users.edit', Auth::id()) }}" class="dropdown-item">
-                            <i class="far far-edit mr-2"></i>
+                            <i class="far fa-edit mr-2"></i>
                             编辑资料
                         </a>
                         <div class="dropdown-divider"></div>
