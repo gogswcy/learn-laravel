@@ -19,7 +19,7 @@
                     </div>
 
                     <small class="media-body meta text-secondary">
-                        <a href="#" title="{{ $topic->category->name }}" class="text-secondary">
+                        <a href="{{ route('categories.show', $topic->id) }}" title="{{ $topic->category->name }}" class="text-secondary">
                             <i class="far fa-folder"></i>
                             {{ $topic->category->name }}
                         </a> 
