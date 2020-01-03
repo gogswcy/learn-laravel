@@ -9,6 +9,8 @@
     <!-- css -->
     <link rel="stylesheet" href="{{ config('app.subdir').mix('css/app.css') }}">
 
+    @yield('styles')
+
     <title>@yield('title', 'LaraBBS') - 进阶</title>
 </head>
 <body>
@@ -23,5 +25,8 @@
 
     <!-- scripts -->
     <script src="{{ config('app.subdir').mix('js/app.js') }}"></script>
+
+    @yield('scripts')
+    
 </body>
 </html>

@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('styles')
+  <link rel="stylesheet" href="{{ asset('css/simditor.css') }}">
+@stop
+
 @section('content')
 
 <div class="container">
@@ -44,7 +48,7 @@
             </div>
 
             <div class="form-group">
-              <textarea name="body" id="editor" rows="6" class="form-control" placeholder="......"></textarea>
+              <textarea name="body" id="editor" rows="6" class="form-control" placeholder=""></textarea>
             </div>
 
             <div class="form-group">
@@ -58,3 +62,18 @@
   </div>
 </div>
 @endsection
+
+@section('scripts')
+  <script src="{{ asset('js/module.js') }}"></script>
+  <script src="{{ asset('js/hotkeys.js') }}"></script>
+  <script src="{{ asset('js/uploader.js') }}"></script>
+  <script src="{{ asset('js/simditor.js') }}"></script>
+
+  <script>
+    $(document).ready(function () {
+      var editor = new Simditor({
+        textarea: $('#editor'),
+      });
+    });
+  </script>
+@stop
