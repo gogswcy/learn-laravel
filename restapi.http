@@ -1,0 +1,9 @@
+GET https://example.com/comments/1 HTTP/1.1
+
+
+### 
+POST http://larabbs.test/upload_image HTTP/1.1
+content-type: application/json
+{
+
+}

@@ -9,6 +9,7 @@ use App\Http\Requests\TopicRequest;
 use App\Models\Category;
 use App\Models\User;
 use Auth;
+use App\Handlers\ImageuploadHandler;
 
 class TopicsController extends Controller
 {
@@ -62,5 +63,28 @@ class TopicsController extends Controller
 		$topic->delete();
 
 		return redirect()->route('topics.index')->with('message', 'Deleted successfully.');
+	}
+
+	// 上传图片
+	public function uploadImage(Request $request, ImageUploadHandler $uploader)
+	{
+		// 初使化返回数组
+		$data = [
+			'success' => false,
+			'msg' => '上传失败!',
+			'file_path' => ''
+		];
+		// 判断是否有上传文件并赋值给$file
+		if ($file = $request->upload_file) {
+			// 保存文件到本地
+			$result = $uploader->save($request->upload_file, 'topics', \Auth::id(), 1024);
+			// 图片保存成功的话
+			if ($result) {
+				$data['success'] = true;
+				$data['msg'] = '上传成功!';
+				$data['file_path'] = $result['path'];
+			}
+		}
+		return $data;	
 	}
 }
