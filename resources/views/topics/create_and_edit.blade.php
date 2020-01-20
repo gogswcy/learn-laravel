@@ -41,14 +41,14 @@
             <div class="form-group">
               <select name="category_id" required id="" class="form-control">
                 <option value="" hidden disabled selected>请选择分类</option>
-                @foreach ($category as $value)
-                <option value="{{ $value->id }}">{{ $value->name }}</option>
+                @foreach ($categories as $value)
+                <option value="{{ $value->id }}" {{ $value->id == $topic->category_id ? 'selected' : '' }}>{{ $value->name }}</option>
                 @endforeach
               </select>
             </div>
 
             <div class="form-group">
-              <textarea name="body" id="editor" rows="6" class="form-control" placeholder=""></textarea>
+              <textarea name="body" id="editor" rows="6" class="form-control" placeholder="">{!! $topic->body !!}</textarea>
             </div>
 
             <div class="form-group">
